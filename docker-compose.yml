@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URI: "mongodb://mongo:27017/resident-db"
+      EMAIL_HOST: "mailhog"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
+volumes:
+  mongodb-data:

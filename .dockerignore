@@ -1,0 +1,20 @@
+# Node
+node_modules
+npm-debug.log
+
+# Angular
+dist/
+*.log
+
+# Editors and IDEs
+*.idea/
+*.vscode/
+*.swp
+*.swo
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
