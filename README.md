@@ -24,7 +24,11 @@
 
 To add records to the MongoDB:
 
-`docker exec -it  resident-registration-server-1 npm run seed`
+docker exec -it  [SERVER_CONTAINER_ID] npm run seed
+
+For example
+
+`docker exec -it resparke-server-1 npm run seed`
 
 ## Accessing Emails (MailHog)
 

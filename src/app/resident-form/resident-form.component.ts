@@ -36,7 +36,7 @@ export class ResidentFormComponent {
       next: data => {
         const name = (data as {data: Resident}).data.firstName
         this.resident = this.emptyModel;
-        this.sharedService.successMessage = `New Resident: ${name}, saved successfully`;
+        this.sharedService.successMessage = `New Resident: ${name}, saved successfully, an email was sent as a notification as well.`;
         this.router.navigate(['/residents']);
       },
       error: error => {
