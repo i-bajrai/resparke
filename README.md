@@ -1,27 +1,40 @@
-# ResidentRegistration
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+# Resident Registration
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Ensure you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed on your machine.
 
-## Code scaffolding
+## Installation & Running with Docker
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/i-bajrai/resparke
+   cd resparke
+   ```
 
-## Build
+2. **Build and Start the Services**:
+   ```bash
+   docker-compose up --build
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Access the Angular app at `http://localhost:4200` and the backend server at `http://localhost:3000`.
 
-## Running unit tests
+## Seed database
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To add records to the MongoDB:
 
-## Running end-to-end tests
+`docker exec -it  resident-registration-server-1 npm run seed`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Accessing Emails (MailHog)
 
-## Further help
+During development, we use MailHog to capture and view emails sent by the application. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### How to Access Email WebUI
+
+1. **Start the services**: Ensure your Docker services are running.
+
+2. **View emails in the MailHog web UI**: Once the application is running and has sent emails, you can view them by navigating to the MailHog web interface:
+   [MailHog Web UI](http://localhost:8025)
+
+This provides a simple and easy way to view and test email functionality during development without actually sending emails to real inboxes.
