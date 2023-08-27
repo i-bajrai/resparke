@@ -1,0 +1,54 @@
+<div class="max-w-lg mx-auto mt-10">
+    <h1 class="text-3xl font-semibold mb-4">Create new Resident</h1>
+</div>
+
+<form ngNativeValidate #residentForm="ngForm" (ngSubmit)="addResident()" class="bg-white p-8 rounded-lg shadow-md max-w-lg mx-auto mt-4">
+
+    <div *ngIf="errorMessage" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+        <strong class="font-bold">Error:</strong>
+        <br>
+        <span class="block sm:inline">{{ errorMessage }}</span>
+    </div>
+
+    <div class="mb-4">
+        <label for="firstName" class="block text-sm font-medium text-gray-700">First Name:</label>
+        <input required type="text" id="firstName" name="firstName" [(ngModel)]="resident.firstName" required
+            class="mt-1 p-2 w-full border rounded-md">
+    </div>
+
+    <div class="mb-4">
+        <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name:</label>
+        <input required type="text" id="lastName" name="lastName" [(ngModel)]="resident.lastName" required
+            class="mt-1 p-2 w-full border rounded-md">
+    </div>
+
+    <div class="mb-4">
+        <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth:</label>
+        <input required type="date" id="dob" name="dob" [(ngModel)]="resident.dateOfBirth" required
+            class="mt-1 p-2 w-full border rounded-md">
+    </div>
+
+    <div class="mb-4">
+        <label for="email" class="block text-sm font-medium text-gray-700">Email Address:</label>
+        <input required type="email" id="email" name="email" [(ngModel)]="resident.email" required
+            class="mt-1 p-2 w-full border rounded-md">
+    </div>
+
+    <div class="mb-4">
+        <label for="roomNumber" class="block text-sm font-medium text-gray-700">Room Number:</label>
+        <input required type="number" id="roomNumber" name="roomNumber" [(ngModel)]="resident.roomNumber" required
+            class="mt-1 p-2 w-full border rounded-md">
+    </div>
+
+    <div class="mb-4">
+        <label for="countryOfBirth" class="block text-sm font-medium text-gray-700">Country of Birth:</label>
+        <input required type="text" id="countryOfBirth" name="countryOfBirth" [(ngModel)]="resident.countryOfBirth"
+            required class="mt-1 p-2 w-full border rounded-md">
+    </div>
+
+    <button type="submit" [disabled]="!residentForm.valid"
+        class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
+        [class.opacity-50]="!residentForm.valid" [class.cursor-not-allowed]="!residentForm.valid">
+        Add Resident
+    </button>
+</form>
